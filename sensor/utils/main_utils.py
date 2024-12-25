@@ -5,16 +5,23 @@ import os
 import dill
 import sys
 from sensor.exception import SensorException
+
 from sensor.logger import logging
+
 
 
 def read_yaml_file(file_path:str)->dict:
     try:
+
         with open(file_path, 'rb') as yaml_file:
             return yaml.safe_load(yaml_file)
+        
+
     except Exception as e:
         raise SensorException(e,sys)
     
+
+
 def write_yaml_file(file_path: str, content: object, replace: bool = False) -> None:
     try:
         if replace:
@@ -23,9 +30,12 @@ def write_yaml_file(file_path: str, content: object, replace: bool = False) -> N
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
         with open(file_path, "w") as file:
             yaml.dump(content, file)
+
     except Exception as e:
         raise SensorException(e, sys)
     
+
+
 def save_numpy_array_data(file_path: str, array: np.array):
     """
     Save numpy array data to file
@@ -67,8 +77,6 @@ def save_object(file_path: str, obj: object) -> None:
     except Exception as e:
         raise SensorException(e, sys) from e
     
-
-
 def load_object(file_path: str, ) -> object:
     try:
         if not os.path.exists(file_path):

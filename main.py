@@ -47,7 +47,7 @@ app.add_middleware(
 
 
 @app.get("/",tags=["authentication"])
-async def  index():
+async def index():
     return RedirectResponse(url="/docs")
 
 
@@ -101,4 +101,5 @@ def main():
 
 
 if __name__ == "__main__":
-    app_run(app ,host=APP_HOST,port=APP_PORT)
+    main()
+    app_run(app,host=APP_HOST,port=APP_PORT,reload=True)

@@ -170,9 +170,8 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 .env
+.vscode
 artifact
 myenv
 logs
-.vscode
-mongodb.ipynb
 saved_models

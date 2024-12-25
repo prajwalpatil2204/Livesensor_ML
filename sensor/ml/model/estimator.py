@@ -1,7 +1,6 @@
 import os
 from sensor.constant.training_pipeline import SAVED_MODEL_DIR,MODEL_FILE_NAME
 
-
 class TargetValueMapping:
     def __init__(self):
         self.neg: int = 0
@@ -13,8 +12,7 @@ class TargetValueMapping:
     def reverse_mapping(self):
         mapping_response = self.to_dict()
         return dict(zip(mapping_response.values(), mapping_response.keys()))
-
-
+    
 class SensorModel:
 
     def __init__(self,preprocessor,model):
@@ -30,8 +28,9 @@ class SensorModel:
             y_hat = self.model.predict(x_transform)
             return y_hat
         except Exception as e:
-            raise e    
-        
+            raise e
+
+
 class ModelResolver: 
 
     
@@ -53,6 +52,7 @@ class ModelResolver:
         except Exception as e:
             raise e   
         
+
 
     def is_model_exists(self)->bool:
         try:
