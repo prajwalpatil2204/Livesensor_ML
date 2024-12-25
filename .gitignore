@@ -175,5 +175,4 @@ myenv
 logs
 .vscode
 mongodb.ipynb
-*.pdf
 saved_models
